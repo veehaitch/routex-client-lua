@@ -3,14 +3,13 @@
 ---@return table
 local function findLoggingModule()
   local ok, logging = pcall(require, "logging")
-  if ok then
-    return logging
-  else
+  if not ok then
     logging = require("routex-client.vendor.logging")
     local consoleLogger = require("routex-client.vendor.logging.console")()
+    consoleLogger:setLevel("WARN")
     logging.defaultLogger(consoleLogger)
-    return logging
   end
+  return logging
 end
 
 return findLoggingModule()
