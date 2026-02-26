@@ -19,11 +19,11 @@ luarocks install http
 ```
 
 ```lua
-local routex = require("routex-client")
-local http = require("routex-client.http")
+local RoutexClient = require("routex-client").RoutexClient
+local DefaultHttpClient = require("routex-client.http").DefaultHttpClient
 
-local httpClient = http.DefaultHttpClient:new()
-local client = routex.RoutexClient:new(httpClient, "https://api.yaxi.tech")
+local httpClient = DefaultHttpClient:new()
+local client = RoutexClient:new("https://api.yaxi.tech", httpClient)
 ```
 
 ## License
