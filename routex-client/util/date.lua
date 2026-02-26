@@ -52,5 +52,6 @@ local function toIso8601(utcTime)
 end
 
 return {
-  formatDate = formatDate
+  formatDate = formatDate,
+  toIso8601 = toIso8601,
 }
